@@ -88,15 +88,15 @@ $shopee = new ShopeeIntegrate();
 
 foreach( $dates_array as $key => $value ){
     $lastkey_parent = 0;
-    getorderlist( $username, $password, $sign, $partner_id, $shopid, $pageoffset, $pagination_per_page, $datenow, $value['from'], $value['to'], $lastkey_parent );
+    getorderlist( $shopee, $username, $password, $sign, $partner_id, $shopid, $pageoffset, $pagination_per_page, $datenow, $value['from'], $value['to'], $lastkey_parent );
 }
 
-function getorderlist( $username, $password, $sign, $partner_id, $shopid, $pageoffset, $pagination_per_page, $datenow, $from ,$to, $lastkey_parent){
+function getorderlist( $shopee, $username, $password, $sign, $partner_id, $shopid, $pageoffset, $pagination_per_page, $datenow, $from ,$to, $lastkey_parent){
     $result = $shopee->fetch_orderdetails( $username, $password, $sign, $partner_id, $shopid, $pageoffset, $pagination_per_page, $datenow, $from, $to, $lastkey_parent );
     printf($result);
     $lastkey_parent = $lastkey_parent + 50;
     $start = $lastkey_parent;
     if ( $result->more_status != null )
-    getorderlist( $username, $password, $sign, $partner_id, $shopid, $start, $pagination_per_page, $datenow, $from, $to, $lastkey_parent );
+    getorderlist( $shopee, $username, $password, $sign, $partner_id, $shopid, $start, $pagination_per_page, $datenow, $from, $to, $lastkey_parent );
 }
   
