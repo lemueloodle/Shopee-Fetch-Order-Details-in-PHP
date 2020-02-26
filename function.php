@@ -29,7 +29,7 @@ class ShopeeIntegrate_Do
 
         $post = '{
             "partner_id"                  : '.$partner_id.', 
-            "shopid"                      : '.$shopeeid.', 
+            "shopid"                      : '.$shopid.', 
             "timestamp"                   : '.$datenow.', 
             "pagination_offset"           : '.$pageoffset.', 
             "pagination_entries_per_page" : '.$pagination_per_page.',
@@ -70,7 +70,7 @@ class ShopeeIntegrate_Do
         
         $post = '{
             "partner_id"   : '.$partner_id.', 
-            "shopid"       : '.$shopeeid.', 
+            "shopid"       : '.$shopid.', 
             "timestamp"    : '.$datenow.', 
             "ordersn_list" : ['.$comma_separated .']
         }';
@@ -227,7 +227,7 @@ class ShopeeIntegrate_Do
 
             $postx = '{
                 "partner_id" : '.$partner_id.', 
-                "shopid"     : '.$shopeeid.', 
+                "shopid"     : '.$shopid.', 
                 "timestamp"  : '.$datenow.', 
                 "ordersn"    : "'.$x_order_id.'"
             }';
@@ -296,11 +296,15 @@ class ShopeeIntegrate_Do
                 $x_escrow_amount = $resultxx->order->income_details->escrow_amount;
             else
                 $x_escrow_amount = "";
-
+            
+            if($result->more != null)
+                $more_status = 1;
+            else
+                $more_status = null;
             /**
             * Generate JSON
             * 
-            * return @param $callback_result A variable the stores the order details in json.
+            * return @param $callback_result A string variable the stores the order details in json.
             *
             * $order_id - Order Number
             * $order_status - Order Status
@@ -333,7 +337,7 @@ class ShopeeIntegrate_Do
             * $escrow_vouchercode - Escrow Voucher Code
             * $escrow_vouchername - Escrow Voucher Name
             * $escrow_amount - Escrow Amount
-            *
+            * $more_status - Show status if the order list still have other pages
             */
 
             $callback_result = '{ 
@@ -368,11 +372,20 @@ class ShopeeIntegrate_Do
                 "escrow_vouchercode" => "'.$x_escrow_vouchercode.'",
                 "escrow_vouchername" => "'.$x_escrow_vouchername.'",
                 "escrow_amount" => "'.$x_escrow_amount.'"
-                }';
+                },';
             
-            return $callback_result;
-            sleep(1);
+            echo $callback_result;
         }
-            
+
+        /**
+        * Get lastpage number and add 50 to increment the offset.
+        * Run the fetch_orderdetails_x again if there's still more pages or orders in the specific dates.
+        * 
+        */
+
+        $lastkey_parent = $lastkey_parent + 50;
+        $start = $lastkey_parent;
+        if ( $result->more != null )
+            $this->fetch_orderdetails_x( $username, $password, $sign, $partner_id, $shopid, $start, $pagination_per_page, $datenow, $from, $to, $lastkey_parent );
     }
 }
