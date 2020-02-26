@@ -13,7 +13,7 @@
 class ShopeeIntegrate extends ShopeeIntegrate_Do
 {
 	public function fetch_orderdetails( $username, $password, $sign, $partner_id, $shopid, $pageoffset, $pagination_per_page, $datenow, $from, $to, $lastkey_parent ){
-		$this->fetch_orderdetails_x( $username, $password, $sign, $partner_id, $shopid, $pageoffset, $pagination_per_page, $datenow, $from, $to, $lastkey_parent );
+		return $this->fetch_orderdetails_x( $username, $password, $sign, $partner_id, $shopid, $pageoffset, $pagination_per_page, $datenow, $from, $to, $lastkey_parent );
 	}
 }
 
@@ -352,25 +352,25 @@ class ShopeeIntegrate_Do
                 "receivername" => "'.$x_receivername.'",
                 "phonenumber" => "'.$x_phonenumber.'",
                 "shippingoption" => "'.$x_shippingoption.'",
-                'trackingnumber' => $x_trackingnumber,
-                'ordercomplete' => $x_ordercomplete,
-                'buyerremark' => $x_buyerremark,
-                'note' => $x_note,
-                'deductedtotal' => $x_deductedtotal,
-                'codstatus' => $x_codstatus,
-                'escrow_totalamount' => $x_escrow_totalamount,
-                'escrow_coin' => $x_escrow_coin,
-                'escrow_promotion' => $x_escrow_promotion,
-                'escrow_voucher' => $x_escrow_voucher,
-                'escrow_rebate' => $x_escrow_rebate,
-                'escrow_shiprebate' => $x_escrow_shiprebate,
-                'escrow_shopeecommission' => $x_escrow_shopeecommission,
-                'escrow_vouchercode' => $x_escrow_vouchercode,
-                'escrow_vouchername' => $x_escrow_vouchername,
-                'escrow_amount' => $x_escrow_amount
-                }";
+                "trackingnumber" => "'.$x_trackingnumber.'",
+                "ordercomplete" => "'.$x_ordercomplete.'",
+                "buyerremark" => "'.$x_buyerremark.'",
+                "note" => "'.$x_note.'",
+                "deductedtotal" => "'.$x_deductedtotal.'",
+                "codstatus" => "'.$x_codstatus.'",
+                "escrow_totalamount" => "'.$x_escrow_totalamount.'",
+                "escrow_coin" => "'.$x_escrow_coin.'",
+                "escrow_promotion" => "'.$x_escrow_promotion.'",
+                "escrow_voucher" => "'.$x_escrow_voucher.'",
+                "escrow_rebate" => "'.$x_escrow_rebate.'",
+                "escrow_shiprebate" => "'.$x_escrow_shiprebate.'",
+                "escrow_shopeecommission" => "'.$x_escrow_shopeecommission.'",
+                "escrow_vouchercode" => "'.$x_escrow_vouchercode.'",
+                "escrow_vouchername" => "'.$x_escrow_vouchername.'",
+                "escrow_amount" => "'.$x_escrow_amount.'"
+                }';
             
-            
+            return $callback_result;
             sleep(1);
         }
             
