@@ -344,7 +344,7 @@ class ShopeeIntegrate_Do
                 "order_id" => "'.$x_order_id.'",
                 "order_status" => "'.$x_order_status.'",
                 "orderdate" => "'.$x_orderdate.'",
-                "pricepaid" => $x_pricepaid,
+                "pricepaid" => "'.$x_pricepaid.'",
                 "shippingfeepaid" => "'.$x_shippingfeepaid.'",
                 "totalamountpaid" => "'.$x_totalamountpaid.'",
                 "productinfo" => "'.$x_productinfo.'",
