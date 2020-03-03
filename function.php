@@ -344,7 +344,7 @@ class ShopeeIntegrate_Do
                 "order_id" => "'.$x_order_id.'",
                 "order_status" => "'.$x_order_status.'",
                 "orderdate" => "'.$x_orderdate.'",
-                "pricepaid" => $x_pricepaid,
+                "pricepaid" => "'.$x_pricepaid.'",
                 "shippingfeepaid" => "'.$x_shippingfeepaid.'",
                 "totalamountpaid" => "'.$x_totalamountpaid.'",
                 "productinfo" => "'.$x_productinfo.'",
@@ -375,6 +375,11 @@ class ShopeeIntegrate_Do
                 },';
             
             echo $callback_result;
+
+            /**
+            * YOU CAN INSERT YOUR OWN PHP CODE HERE IF YOU WANT TO SAVE THE DATA DIRECTLY TO YOUR DATABASE.
+            * YOU CAN INSERT YOUR OWN PHP CODE HERE IF YOU WANT TO SAVE THE DATA DIRECTLY TO YOUR DATABASE.
+            */
         }
 
         /**
