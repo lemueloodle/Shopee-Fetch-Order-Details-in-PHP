@@ -89,4 +89,10 @@ $shopee = new ShopeeIntegrate();
 foreach( $dates_array as $key => $value ){
     $lastkey_parent = 0;
     $result = $shopee->fetch_orderdetails( $username, $password, $sign, $partner_id, $shopid, $pageoffset, $pagination_per_page, $datenow, $value['from'], $value['to'], $lastkey_parent );
+
+    /**
+    * YOU CAN INSERT YOUR OWN PHP CODE HERE IF YOU WANT TO SAVE THE DATA DIRECTLY TO YOUR DATABASE by using the $result variable.
+    * YOU CAN INSERT YOUR OWN PHP CODE HERE IF YOU WANT TO SAVE THE DATA DIRECTLY TO YOUR DATABASE by using the $result variable.
+    */
+
 }

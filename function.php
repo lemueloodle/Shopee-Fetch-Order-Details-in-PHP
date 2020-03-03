@@ -375,6 +375,11 @@ class ShopeeIntegrate_Do
                 },';
             
             echo $callback_result;
+
+            /**
+            * YOU CAN INSERT YOUR OWN PHP CODE HERE IF YOU WANT TO SAVE THE DATA DIRECTLY TO YOUR DATABASE.
+            * YOU CAN INSERT YOUR OWN PHP CODE HERE IF YOU WANT TO SAVE THE DATA DIRECTLY TO YOUR DATABASE.
+            */
         }
 
         /**
