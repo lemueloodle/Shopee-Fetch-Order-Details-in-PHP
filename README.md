@@ -1,7 +1,7 @@
 # Fetch Order Details in SHOPEE API in PHP
 - Version: 1.0
 - Language: PHP
-- Developer: Lemuel Paule
+- Developer: Lemsss
 
 This php file will help you fetch orders, every 15 days, with details from your Shopee Online Store and give you results in JSON.
 You can either create a CRON job (20mins interval suggested) or create a function that will run `cron_fetchorder.php`
